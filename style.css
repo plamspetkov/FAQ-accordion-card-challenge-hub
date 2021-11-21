@@ -1,153 +1,204 @@
 :root {
-    /*hover/active text*/
-    --active-question: hsl(238, 29%, 16%);
-    --hover-question: hsl(14, 88%, 65%);
-    /*static text*/
-    --inactive-question:hsl(237, 12%, 33%);
-    --text:hsl(240, 6%, 50%);
-    /*background*/
-    --soft-violet: hsl(273, 75%, 66%);
-    --soft-blue: hsl(240, 73%, 65%);
-    /*dividers*/
-    --divider:hsl(240, 5%, 91%);
-  }
+	/*hover/active text*/
+	--active-question: hsl(238, 29%, 16%);
+	--hover-question: hsl(14, 88%, 65%);
+	/*static text*/
+	--inactive-question: hsl(237, 12%, 33%);
+	--text: hsl(240, 6%, 50%);
+	/*background*/
+	--soft-violet: hsl(273, 75%, 66%);
+	--soft-blue: hsl(240, 73%, 65%);
+	/*dividers*/
+	--divider: hsl(240, 5%, 91%);
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 html {
-    font-family: 'Kumbh Sans', sans-serif;
-    font-size: 12px;
+	font-family: 'Kumbh Sans', sans-serif;
+	font-size: 12px;
 }
 
 body {
-    background: linear-gradient( var(--soft-violet) -50%, var(--soft-blue) 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+	background: linear-gradient(var(--soft-violet) -50%, var(--soft-blue) 100%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
 }
 
 .card {
-    background-color: #fff;
-    border-radius: 25px;
-    max-width: 1010px;
-    width: 90%;
-    margin-top: 9em;
-    box-shadow: 0px 17px 18px 0px rgba(0, 0, 0, 0.2);
-}
-.card .image_box {
-    display: block;
-    text-align: center;
-    background-image: url(./images/bg-pattern-mobile.svg);
-    background-repeat: no-repeat;
-    background-position-y: top;
-    background-position-x: center;
-    height: 22%;
+	background-color: #fff;
+	max-width: 100%;
+	width: 90%;
+	margin: 0 1.5rem;
+	border-radius: 2rem;
 }
 
-.card .image_box .img {
-    z-index: 5; 
-    position: relative; 
-    top: -9em;
-    left: -1em;
+.accordeon {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	/* width: 23.16rem; */
+	margin-inline: 2rem;
+	margin-block: 1.4375rem 2rem;
 }
 
-.card .image_box .orange_box {
-    display: none;
+.faq_text {
+	margin-top: 2rem;
+	color: var(--active-question);
+	font-weight: 700;
 }
 
-.accordion {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.image_box {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
-.accordion .title {
-    text-align: center;
-    color: var(--active-question);
-    font-weight: 700;
+.desktop_img,
+.orange_box {
+	display: none;
 }
 
-.accordion .faq_text {
-    width: 100%;
-    padding: 0;
+.mobile_img {
+	height: auto;
+	width: 100%;
+	max-width: 22rem;
+	display: block;
+	margin-right: 2.5rem;
+	transform: translateY(-6rem);
 }
 
-.accordion .faq_text li {
-    list-style: none;
-    cursor: pointer;
-    margin: 0 2em 0 2em;
+.image_box {
+	background-image: url(./images/bg-pattern-mobile.svg);
+	background-repeat: no-repeat;
+	background-position: top center;
+	height: 10.5rem;
 }
 
-.accordion .faq_text li .question_btn {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
+.faq_text {
+	list-style: none;
+	width: 100%;
 }
 
-.accordion .faq_text .question_btn .question_title{
-    font-size: 1.1em;
-    font-weight: 400;
-    color: var(--inactive-question);
+li {
+	margin-block: 1rem;
+	border-bottom: 1px solid var(--divider);
 }
 
-.accordion .faq_text li .question_btn .question_title:hover {
-    color: var(--hover-question);
+.question_btn {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	text-align: left;
+	background-color: transparent;
+	border: none;
+	color: var(--inactive-question);
+	margin-bottom: 1rem;
 }
 
-.accordion .faq_text li .question_btn .arrow {
-    background-image: url(./images/icon-arrow-down.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 20px;
-    height: 20px;
-    transition: all 0.3s ease;
+.question_btn::after {
+	content: '';
+	display: block;
+	background-image: url(./images/icon-arrow-down.svg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-size: center center;
+	width: 0.825rem;
+	height: 0.625rem;
+	transition: ease-in-out;
+}
+
+.question_btn:hover {
+	color: var(--hover-question);
+}
+
+.question_btn:active {
+	font-weight: 700;
+	color: var(--active-question);
+}
+
+.answer {
+	display: none;
 }
 
 .text {
-    display: none;
-    width: 90%;
-    color: var(--text);
+	color: var(--text);
+	margin-block: 1rem;
 }
 
-/* .hide {
-    display: none;
-} */
-
-.show {
-    display: block;
+.answer_show {
+	display: block;
 }
 
-.rotate {
-    transform: rotate(-180deg);
-}
+@media (min-width: 1000px) {
+	.card {
+		display: flex;
+		flex-direction: row;
+		width: 76.66rem;
+	}
 
-.active {
-    color: var(--active-question);
-}
+	.image_box {
+		width: 100%;
+		background-image: url(./images/bg-pattern-desktop.svg);
+		background-repeat: no-repeat;
+		background-position: left -50.2rem top -22rem;
+		background-size: auto;
+		height: 100%;
+		position: relative;
+	}
 
-.accordion .faq_text li .line {
-    height: 2px;
-    display: block;
-    background-color: var(--divider);
-}
+	.img_wrap {
+		overflow: hidden;
+		width: 100%;
+	}
 
+	.desktop_img {
+		display: block;
+		transform: translateX(-6rem);
+		max-width: 100%;
+	}
 
-.attribution {
-  font-size: 11px;
-  text-align: center;
-  margin-top: 3em;
-  color: #fff;
-}
-.attribution a {
-  color: var(--soft-violet);
+	.orange_box {
+		position: absolute;
+		display: block;
+		z-index: 2;
+		left: -21%;
+		top: 41%;
+	}
+	.accordeon {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: space-evenly;
+		padding-top: 3.916rem;
+		padding-bottom: 3.916rem;
+	}
+
+	.faq_text {
+		max-width: 86%;
+		/* padding: 7.916rem 7.916rem 7.916rem 0; */
+	}
+
+	.question {
+		padding: 1rem 1rem 1rem 0;
+	}
+	.title {
+		text-align: left;
+	}
+
+	.mobile_img {
+		display: none;
+	}
 }
