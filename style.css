@@ -119,11 +119,20 @@ li {
 	transition: ease-in-out;
 }
 
+.is-open .question_btn::after {
+	transform: rotate(180deg);
+}
+
 .question_btn:hover {
 	color: var(--hover-question);
 }
 
 .question_btn:active {
+	font-weight: 700;
+	color: var(--active-question);
+}
+
+.is-open .question_btn {
 	font-weight: 700;
 	color: var(--active-question);
 }
@@ -137,7 +146,7 @@ li {
 	margin-block: 1rem;
 }
 
-.answer_show {
+.is-open .answer {
 	display: block;
 }
 
@@ -158,11 +167,9 @@ li {
 		position: relative;
 	}
 
-	.img_wrap {
+	.image_box-box {
 		overflow: hidden;
-		width: 100%;
 	}
-
 	.desktop_img {
 		display: block;
 		transform: translateX(-6rem);
